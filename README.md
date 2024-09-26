@@ -2,6 +2,7 @@
 An ad-hoc analysis of Cafe Rewards Offers dataset 
 
 Credits:
+
 Dataset was taken from: Maven Analytics
 
 Picture used in the Power BI dashboard was taken from:
