@@ -9,8 +9,11 @@ Picture used in the Power BI dashboard was taken from:
 <a href="https://www.freepik.com/free-vector/coffee-logo-template-design-minimalist_36277688.htm#fromView=search&page=1&position=19&uuid=662712dd-19be-42db-910b-4aa244367088">Image by arrandera on Freepik</a>
 
 Cafe Rewards Offers 
+
 Data that simulates the behavior of Cafe Rewards members over a 30-day period, including their transactions and responses to promotional offers. 
+
 Customers receive offers once every few days and have a limited time to redeem them. These can be informational offers (simple advertisement of a product), discount offers, or "buy one, get one" (BOGO) offers. Each customer receives a different mix of offers, attempting to maximize their probability of making a purchase. 
+
 Every customer purchase during the period is marked as a transaction. For a transaction to be attributed to an offer, it must occur at the same time as when the offer was "completed" by the customer.
 
 Recommended Analysis
