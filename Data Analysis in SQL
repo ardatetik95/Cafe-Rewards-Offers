@@ -1,1 +1,41 @@
+1) How many reward offers were completed? Which offers had the highest completion rate?
+SELECT
+	o.offer_type,
+	COUNT(*) AS Total_Transactions,
+	(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER ()) AS PRC
+	FROM CLEAN_CAFE C
+	LEFT JOIN offers O ON c.value=o.offer_id
+	WHERE c.event='offer completed'
+	GROUP BY o.offer_type
 
+2) How are customer demographics distributed? Are there any demographic patterns in offer completion?
+SELECT gender, 
+CASE WHEN INCOME<=30000 THEN 'Low Income'
+WHEN INCOME BETWEEN 30001 AND 60000 THEN 'Middle Income'
+WHEN INCOME BETWEEN 60001 AND 100000 THEN 'Upper Middle Income'
+ELSE 'High Income'
+END AS Income_Group,
+CASE WHEN AGE BETWEEN 18 AND 25 THEN '18-25'
+WHEN AGE BETWEEN 26 AND 35 THEN '26-35'
+WHEN AGE BETWEEN 36 AND 50 THEN '36-50'
+WHEN AGE BETWEEN 51 AND 65 THEN '51-65'
+ELSE '65+'
+END AS Age_Group,
+COUNT(*) AS Customer_Count,
+(COUNT(*)*100.0 / SUM(COUNT(*)) OVER ()) AS Completion_Rate
+FROM CLEAN_CAFE
+WHERE EVENT='offer completed'
+GROUP BY 
+GENDER,
+CASE WHEN INCOME<=30000 THEN 'Low Income'
+WHEN INCOME BETWEEN 30001 AND 60000 THEN 'Middle Income'
+WHEN INCOME BETWEEN 60001 AND 100000 THEN 'Upper Middle Income'
+ELSE 'High Income'
+END,
+CASE WHEN AGE BETWEEN 18 AND 25 THEN '18-25'
+WHEN AGE BETWEEN 26 AND 35 THEN '26-35'
+WHEN AGE BETWEEN 36 AND 50 THEN '36-50'
+WHEN AGE BETWEEN 51 AND 65 THEN '51-65'
+ELSE '65+'
+END
+ORDER BY 5 DESC
