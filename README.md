@@ -1,5 +1,5 @@
 # Cafe-Rewards-Offers
-An ad-hoc analysis of Cafe Rewards Offers dataset 
+An analysis of the Cafe Rewards Offers dataset 
 
 Credits:
 
